@@ -1,7 +1,11 @@
 import 'reflect-metadata';
-
-import { IMemoryStack } from "./memory-stack.interface";
 import { singleton } from "tsyringe";
+
+export interface IMemoryStack {
+  push(value: any): void;
+  pop(): any;
+  peek(): any;
+}
 
 @singleton()
 export class MemoryStack implements IMemoryStack {
@@ -16,6 +20,9 @@ export class MemoryStack implements IMemoryStack {
   }
 
   peek() {
+    if (this.stack.length === 0) {
+      return undefined;
+    }
     return this.stack[this.stack.length - 1];
   }
 }

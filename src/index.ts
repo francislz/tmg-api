@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import './containers';
 
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
