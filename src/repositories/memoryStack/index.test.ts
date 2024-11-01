@@ -8,19 +8,19 @@ describe('MemoryStack tests', () => {
   });
 
   it('should push a value to the stack', () => {
-    memoryStack.push(1);
-    expect(memoryStack.peek()).toBe(1);
+    memoryStack.push("1");
+    expect(memoryStack.peek()).toBe("1");
   });
 
   it('should pop a value from the stack', () => {
-    memoryStack.push(1);
-    expect(memoryStack.pop()).toBe(1);
+    memoryStack.push("1");
+    expect(memoryStack.pop()).toBe("1");
   });
 
   it('should peek at the top of the stack', () => {
-    memoryStack.push(1);
-    memoryStack.push(2);
-    expect(memoryStack.peek()).toBe(2);
+    memoryStack.push("1");
+    memoryStack.push("2");
+    expect(memoryStack.peek()).toBe("2");
   });
 
   it('should return undefined when popping an empty stack', () => {

@@ -12,21 +12,21 @@ describe('StackController tests', () => {
   });
 
   it('should push a value to the stack', async () => {
-    await controller.push(1);
-    expect(memoryStack.peek()).toBe(1);
+    await controller.push("1");
+    expect(memoryStack.peek()).toBe("1");
   });
 
   it('should pop a value from the stack', async () => {
-    await controller.push(1);
-    await controller.push(2);
+    await controller.push("1");
+    await controller.push("2");
     const top = await controller.pop();
-    expect(top).toBe(2);
-    expect(memoryStack.peek()).toBe(1);
+    expect(top).toBe("2");
+    expect(memoryStack.peek()).toBe("1");
   });
 
   it('should peek at the top of the stack', async () => {
-    await controller.push(1);
-    expect(await controller.peek()).toBe(1);
+    await controller.push("1");
+    expect(await controller.peek()).toBe("1");
   });
 
   it('should throw an error when poping an empty stack', async () => {

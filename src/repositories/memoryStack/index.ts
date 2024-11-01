@@ -2,16 +2,16 @@ import 'reflect-metadata';
 import { singleton } from "tsyringe";
 
 export interface IMemoryStack {
-  push(value: any): void;
-  pop(): any;
-  peek(): any;
+  push(value: string): void;
+  pop(): string | undefined;
+  peek(): string | undefined;
 }
 
 @singleton()
 export class MemoryStack implements IMemoryStack {
-  private readonly stack: any[] = [];
+  private readonly stack: string[] = [];
 
-  push(value: any) {
+  push(value: string) {
     this.stack.push(value);
   }
 
