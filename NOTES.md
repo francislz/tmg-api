@@ -8,14 +8,14 @@
 
 ## Plans
 
-- [] Create project initial structure
-- [] Set up typescript and tsrynge to manage dependency injection
-- [] Set up express server
-- [] Set up Joi and celebrate to manage routes validations
-- [] Stack implementation
-  - [] Create stack layer to handle the common operations
-  - [] Create controller layer to manage operations
-  - [] Create routes:
+- [x] Create project initial structure
+- [x] Set up typescript and tsrynge to manage dependency injection
+- [x] Set up express server
+- [x] Set up Joi and celebrate to manage routes validations
+- [x] Stack implementation
+  - [x] Create stack layer to handle the common operations
+  - [x] Create controller layer to manage operations
+  - [x] Create routes:
     - POST (/stack): Add item to stack
     - GET (/stack): Top of the stack
 - [] In-memory cache
