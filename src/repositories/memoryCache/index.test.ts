@@ -15,7 +15,8 @@ describe('MemoryCache tests', () => {
 
   it('should delete a value from the cache', () => {
     memoryCache.add("name", "John");
-    memoryCache.delete("name");
+    const deleted = memoryCache.delete("name");
+    expect(deleted).toBe("John");
     expect(memoryCache.get("name")).toBeUndefined();
   });
 
