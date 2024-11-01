@@ -1,10 +1,10 @@
 import 'reflect-metadata';
-import { IMemoryCacheController, MemoryCacheController } from './index';
-import { IMemoryCache, MemoryCache } from '@repositories/memoryCache';
+import { MemoryCacheController } from './index';
+import { MemoryCache } from '@repositories/memoryCache';
 
 describe('MemoryCacheController tests', () => {
-  let memoryCacheController: IMemoryCacheController;
-  let memoryCache: IMemoryCache;
+  let memoryCacheController: MemoryCacheController;
+  let memoryCache: MemoryCache;
 
   beforeEach(() => {
     memoryCache = new MemoryCache();
