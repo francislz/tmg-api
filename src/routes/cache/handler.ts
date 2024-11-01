@@ -1,6 +1,7 @@
 import { injectable } from "tsyringe";
 import { Request, Response } from "express";
 import { MemoryCacheController } from "@controllers/memoryCache";
+import { KeyNotFoundError } from "../../exceptions/cache";
 
 export interface ICacheRoutesHandler {
   add(request: Request, response: Response): Promise<Response>;
@@ -28,7 +29,7 @@ export class CacheRoutesHandler implements ICacheRoutesHandler {
       const data = await this.cacheController.delete(key);
       return response.status(200).json({ data });
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof KeyNotFoundError) {
         return response.status(400).json({ message: error.message });
       }
       return response.status(500).json({ message: 'Unknown error', error });
@@ -41,7 +42,7 @@ export class CacheRoutesHandler implements ICacheRoutesHandler {
       const data = await this.cacheController.get(key);
       return response.status(200).json({ data });
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof KeyNotFoundError) {
         return response.status(400).json({ message: error.message });
       }
       return response.status(500).json({ message: 'Unknown error', error });

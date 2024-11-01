@@ -1,6 +1,7 @@
 import { StackController } from "@controllers/stack";
 import { Request, Response } from "express";
 import { injectable } from "tsyringe";
+import { EmptyStackError } from "@exceptions/stack";
 
 export interface IStackRoutesHandler {
   addToStack(request: Request, response: Response): Promise<Response>;
@@ -26,7 +27,7 @@ export class StackRoutesHandler implements IStackRoutesHandler {
       const data = await this.stackController.pop();
       return response.status(200).json({ data });
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof EmptyStackError) {
         return response.status(400).json({ message: error.message });
       }
       return response.status(500).json({ message: 'Unknown error', error });

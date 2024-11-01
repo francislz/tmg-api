@@ -1,5 +1,6 @@
 import { MemoryStack } from '@repositories/memoryStack';
 import { injectable } from 'tsyringe';
+import { EmptyStackError } from '@exceptions/stack';
 
 export interface IStackController {
   push(value: any): Promise<void>;
@@ -18,7 +19,7 @@ export class StackController implements IStackController {
   async pop(): Promise<any> {
     const data = this.stack.pop();
     if (!data) {
-      throw new Error('Stack is empty');
+      throw new EmptyStackError();
     }
     return data;
   }
@@ -26,7 +27,7 @@ export class StackController implements IStackController {
   async peek(): Promise<any> {
     const data = this.stack.peek();
     if (!data) {
-      throw new Error('Stack is empty');
+      throw new EmptyStackError();
     }
     return data;
   }

@@ -6,7 +6,8 @@
       "@controllers/*": ["src/controllers/*"],
       "@routes/*": ["src/routes/*"],
       "@repositories/*": ["src/repositories/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@exceptions/*": ["src/exceptions/*"]
     },
     "outDir": "./dist",
     "module": "commonjs",

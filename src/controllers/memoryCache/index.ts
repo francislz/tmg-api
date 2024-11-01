@@ -1,5 +1,6 @@
 import { MemoryCache } from "@repositories/memoryCache";
 import { injectable } from "tsyringe";
+import { KeyNotFoundError } from "@exceptions/cache";
 
 export interface IMemoryCacheController {
   add(key: string, value: string, ttl?: number): Promise<void>;
@@ -18,7 +19,7 @@ export class MemoryCacheController implements IMemoryCacheController {
   async delete(key: string): Promise<string> {
     const data = this.memoryCache.delete(key);
     if (!data) {
-      throw new Error("Key not found");
+      throw new KeyNotFoundError();
     }
     return data;
   }
@@ -26,7 +27,7 @@ export class MemoryCacheController implements IMemoryCacheController {
   async get(key: string): Promise<string> {
     const data = this.memoryCache.get(key);
     if (!data) {
-      throw new Error('Key not found');
+      throw new KeyNotFoundError();
     }
     return data;
   }
