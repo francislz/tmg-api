@@ -1,4 +1,4 @@
-import { IMemoryCache } from "@repositories/memoryCache";
+import { MemoryCache } from "@repositories/memoryCache";
 import { injectable } from "tsyringe";
 
 export interface IMemoryCacheController {
@@ -9,7 +9,7 @@ export interface IMemoryCacheController {
 
 @injectable()
 export class MemoryCacheController implements IMemoryCacheController {
-  constructor(private memoryCache: IMemoryCache) {}
+  constructor(private memoryCache: MemoryCache) {}
 
   async add(key: string, value: string, ttl = 0): Promise<void> {
     this.memoryCache.add(key, value, ttl);

@@ -7,6 +7,7 @@ import { StackRouter } from '@routes/stack';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './swagger.json';
 import { errors } from 'celebrate';
+import { CacheRouter } from '@routes/cache';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use("/", StackRouter.getRouter());
+app.use("/", CacheRouter.getRouter());
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Celebrate error handler
