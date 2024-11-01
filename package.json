@@ -6,7 +6,10 @@
     "build": "npx tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "start": "node dist/index.js",
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage src/.",
+    "test:sonar": "jest --coverage --testResultsProcessor=jest-sonar-reporter",
+    "test:watch": "jest --watchAll --coverage --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",
