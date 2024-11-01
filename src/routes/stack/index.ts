@@ -4,8 +4,8 @@ import { StackRoutesHandler } from "./handler";
 import { StackRoutesValidations } from "./validation";
 
 export abstract class StackRouter {
-  private static apiVersion = "/v1";
-  private static path = "/stack";
+  private static readonly apiVersion = "/v1";
+  private static readonly path = "/stack";
 
   static getRouter(): Router {
     const router = Router();

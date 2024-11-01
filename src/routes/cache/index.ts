@@ -4,8 +4,8 @@ import { CacheRoutesHandler } from "./handler";
 import { CacheRoutesValidation } from "./validation";
 
 export abstract class CacheRouter {
-  private static apiVersion = "/v1";
-  private static path = "/cache";
+  private static readonly apiVersion = "/v1";
+  private static readonly path = "/cache";
 
   static getRouter(): Router {
     const router = Router();

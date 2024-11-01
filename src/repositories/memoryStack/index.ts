@@ -9,7 +9,7 @@ export interface IMemoryStack {
 
 @singleton()
 export class MemoryStack implements IMemoryStack {
-  private stack: any[] = [];
+  private readonly stack: any[] = [];
 
   push(value: any) {
     this.stack.push(value);

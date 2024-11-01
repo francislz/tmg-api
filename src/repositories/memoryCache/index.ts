@@ -13,7 +13,7 @@ interface CacheValue {
 
 @singleton()
 export class MemoryCache implements IMemoryCache {
-  private cache: Map<string, CacheValue>;
+  private readonly cache: Map<string, CacheValue>;
 
   constructor() {
     this.cache = new Map<string, CacheValue>();

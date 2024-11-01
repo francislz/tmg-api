@@ -10,7 +10,7 @@ export interface IStackController {
 
 @injectable()
 export class StackController implements IStackController {
-  constructor(private stack: MemoryStack) {}
+  constructor(private readonly stack: MemoryStack) {}
 
   async push(value: any): Promise<void> {
     this.stack.push(value);

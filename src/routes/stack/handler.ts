@@ -10,7 +10,7 @@ export interface IStackRoutesHandler {
 
 @injectable()
 export class StackRoutesHandler implements IStackRoutesHandler {
-  constructor(private stackController: StackController) {}
+  constructor(private readonly stackController: StackController) {}
 
   async addToStack(request: Request, response: Response): Promise<Response> {
     try {

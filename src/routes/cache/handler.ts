@@ -11,7 +11,7 @@ export interface ICacheRoutesHandler {
 
 @injectable()
 export class CacheRoutesHandler implements ICacheRoutesHandler {
-  constructor(private cacheController: MemoryCacheController){}
+  constructor(private readonly cacheController: MemoryCacheController){}
 
   async add(request: Request, response: Response): Promise<Response> {
     try {

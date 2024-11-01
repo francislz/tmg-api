@@ -10,7 +10,7 @@ export interface IMemoryCacheController {
 
 @injectable()
 export class MemoryCacheController implements IMemoryCacheController {
-  constructor(private memoryCache: MemoryCache) {}
+  constructor(private readonly memoryCache: MemoryCache) {}
 
   async add(key: string, value: string, ttl = 0): Promise<void> {
     this.memoryCache.add(key, value, ttl);
