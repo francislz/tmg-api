@@ -8,6 +8,7 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './swagger.json';
 import { errors } from 'celebrate';
 import { CacheRouter } from '@routes/cache';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -21,6 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", StackRouter.getRouter());
 app.use("/", CacheRouter.getRouter());
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(cors({
+  origin: '*',
+}));
 
 // Celebrate error handler
 app.use(errors());
