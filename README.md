@@ -22,7 +22,15 @@
 ### Running the project
 
 1. Clone the repository.
-2. Run `npm install` to install the dependencies.
-3. Run `npm start` to start the production server.
+2. Runnning using docker:
+```bash
+docker build -t tmg-api . 
+docker run -p 80:3000 tmg-api
+```
+3. Run using npm:
+```bash
+npm install
+npm start
+```
 4. Swagger is available on `http://localhost:3000/docs`.
 
