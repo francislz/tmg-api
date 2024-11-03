@@ -37,13 +37,13 @@ export class CacheRoutesHandler implements ICacheRoutesHandler {
   }
 
   async get(request: Request, response: Response): Promise<Response> {
+    const { key } = request.params;
     try {
-      const { key } = request.params;
       const data = await this.cacheController.get(key);
       return response.status(200).json({ data });
     } catch (error) {
       if (error instanceof KeyNotFoundError) {
-        return response.status(400).json({ message: error.message });
+        return response.status(200).json({ data: "" });
       }
       return response.status(500).json({ message: 'Unknown error', error });
     }

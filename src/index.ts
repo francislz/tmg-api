@@ -23,7 +23,7 @@ app.use("/", StackRouter.getRouter());
 app.use("/", CacheRouter.getRouter());
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(cors({
-  origin: '*',
+  origin: 'localhost',
 }));
 
 // Celebrate error handler
