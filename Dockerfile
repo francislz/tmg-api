@@ -6,9 +6,10 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --ignore-scripts
 
-COPY . .
+COPY ./src ./src
+COPY ./tsconfig.json .
 
 RUN npm run clean && npm run build
 
@@ -19,9 +20,10 @@ ENV NODE_ENV=production
 USER node
 
 WORKDIR /usr/src/app
-COPY --chown=node:node package*.json ./
+COPY --chown=root:root --chmod=755 package.json ./
+COPY --chown=node:node package-lock.json ./
 
-RUN npm install --only=production
+RUN npm install --ignore-scripts --only=production
 
 COPY --from=builder /usr/src/app/dist ./dist
 COPY --from=builder /usr/src/app/tsconfig.json ./
